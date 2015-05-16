@@ -9,33 +9,73 @@
 /**
  * Hello world!
  * I am Autobot.
- * I am programmed to create.
+ * I am programmed to program.
+ *
+ * OK, let's begin.
  */
+* { transition: 1s all; color: green; }
+body { background: black; font-family: monospace; }
 
 /**
- * Let's write some styles.
+ * Suits me, doesn't it?
+ * OK, now let's move this code off to the side.
  */
-* { transition: 1s all; }
-body { color: green; background: black; }
+.autobot-code { float: right; clear: right; width: 33%; overflow: scroll; }
 
 /**
- * Going to write some HTML now.
+ * Things are pretty enough for now.
+ *
+ * Let's write some actual content!
  * autobot-next=header
+ */
+
+/**
  * Cool huh?
  */
+ code { background: #222; }
+
+/**
+ * Wow.
+ *
+ * OK, more content.
+ * autobot-next=content
+ */
+
+/**
+ * This is the end. I hope you liked what I can do!
+ *
+ * Well, I guess we're done coding, so we don't need to see this anymore.
+ */
+.autobot-code { display: none; }
     </style>
   </head>
 
   <body>
     <header data-autobot="header">
-      <h1>Autobot</h1>
-      <p>Self-building websites</p>
-      <!-- Now back to the styles -->
-      <!-- autobot-next=style -->
+<h1>Autobot</h1>
+<p>Self-building websites &bull; <a href="http://github.com/secrettriangle/autobot">Fork on Github</a></p>
+<!-- As you can tell, Autobot makes this kind of thing easy. -->
+<!-- Let's go back to the styles. -->
+<!-- autobot-next=style -->
     </header>
 
+    <section data-autobot="content">
+<h2>Installation</h2>
+<ul>
+  <li>HighlightJS: <code>//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js</code></li>
+  <li>jQuery: <code>//code.jquery.com/jquery-1.11.3.min.js</code></li>
+  <li>Autobot: <code>//rawgit.com/secrettriangle/autobot/master/autobot.js</code></li>
+</ul>
+
+<h2>Usage</h2>
+<p>Add a <code>data-autobot=name</code> attribute to any elements you want animated. That's it!</p>
+
+<h2>Questions?</h2>
+<p><a href="http://github.com/secrettriangle/autobot/issues">Ask on Github</a></p>
+    </section>
+
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="autobot.js"></script>
   </body>
 </html>
