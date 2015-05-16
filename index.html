@@ -31,13 +31,13 @@ body { background: black; font-family: monospace; }
  * Things are pretty enough for now.
  *
  * Let's write some actual content!
- * Before we do, let's make sure it doesn't affect this code.
+ * Before we do, let's make sure it doesn't interfere with this code.
  */
-header, section { float: left; clear: left; width: 50%; }
+#content { float: left; clear: left; width: 66%; }
 
 /**
  * We're ready. 3... 2... 1...
- * autobot-next=header
+ * autobot-next=content
  */
 
 /**
@@ -62,28 +62,29 @@ code { background: #222; }
   </head>
 
   <body>
-    <header data-autobot="header">
-<h1>Autobot</h1>
-<p>Self-building websites &bull; <a href="http://github.com/secrettriangle/autobot">Fork on Github</a></p>
+    <div id="content" data-autobot="content">
+<header>
+  <h1>Autobot</h1>
+  <p>Self-building websites &bull; <a href="http://github.com/secrettriangle/autobot">Fork on Github</a></p>
+</header>
 <!-- As you can tell, Autobot makes this kind of thing easy. -->
 <!-- Let's go back to the styles. -->
 <!-- autobot-next=style -->
-    </header>
+<section>
+  <h2>Installation</h2>
+  <ul>
+    <li>HighlightJS: <code>//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js</code></li>
+    <li>jQuery: <code>//code.jquery.com/jquery-1.11.3.min.js</code></li>
+    <li>Autobot: <code>//rawgit.com/secrettriangle/autobot/master/autobot.js</code></li>
+  </ul>
 
-    <section data-autobot="content">
-<h2>Installation</h2>
-<ul>
-  <li>HighlightJS: <code>//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js</code></li>
-  <li>jQuery: <code>//code.jquery.com/jquery-1.11.3.min.js</code></li>
-  <li>Autobot: <code>//rawgit.com/secrettriangle/autobot/master/autobot.js</code></li>
-</ul>
+  <h2>Usage</h2>
+  <p>Add a <code>data-autobot=name</code> attribute to any elements you want animated. That's it!</p>
 
-<h2>Usage</h2>
-<p>Add a <code>data-autobot=name</code> attribute to any elements you want animated. That's it!</p>
-
-<h2>Questions?</h2>
-<p><a href="http://github.com/secrettriangle/autobot/issues">Ask on Github</a></p>
-    </section>
+  <h2>Questions?</h2>
+  <p><a href="http://github.com/secrettriangle/autobot/issues">Ask on Github</a></p>
+</section>
+    </div>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
