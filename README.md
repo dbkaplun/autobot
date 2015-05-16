@@ -1,2 +1,2 @@
-# autobot
-Plugin that makes your website code itself
+# [autobot](secrettriangle.github.io/autobot)
+Self-building websites
