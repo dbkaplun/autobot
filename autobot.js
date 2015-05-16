@@ -46,9 +46,12 @@
     var current = self.pending[0];
     var data = self.data[current];
     var currentContent = data.content.slice(0, data.i++);
+
     data.$el.html(currentContent);
-    data.$renderEl.text(currentContent);
-    hljs.highlightBlock(data.$renderEl[0]);
+    data.$renderEl.scrollBottom(function () {
+      data.$renderEl.text(currentContent);
+      hljs.highlightBlock(data.$renderEl[0]);
+    });
 
     if (typeof opts.step === 'function') opts.step.call(self, data);
 
@@ -69,6 +72,12 @@
     if (content.match(/(\*\/|-->)$/)) return opts.endCommentMs;
     if (content.match(/\s+$/)) return 0; // skip whitespace
     return opts.keystrokeMs;
+  };
+
+  $.fn.scrollBottom = function (fn) {
+    var scrolledToBottom = this.scrollTop() >= this[0].scrollHeight - this.innerHeight();
+    fn();
+    if (scrolledToBottom) this.scrollTop(this[0].scrollHeight - this.innerHeight());
   };
 
   $(function () {
