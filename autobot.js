@@ -19,6 +19,7 @@
     var self = this;
     self.opts = $.extend(true, null, Autobot.DEFAULT_OPTS, opts);
     self.data = {};
+    self.pending = [];
     $els.each(function (i, el) {
       var $el = $(el);
       var name = $el.attr('data-autobot');
@@ -30,7 +31,7 @@
         i: 0
       };
       $el.html('');
-      if ($el.is('data-autobot-current') || !self.current) self.current = name;
+      self.pending[$el.is('data-autobot-current') ? 'unshift' : 'push'](name);
     });
   }
   Autobot.prototype.animate = function () {
@@ -41,16 +42,22 @@
     var self = this;
     var opts = self.opts;
 
-    var currentData = self.data[self.current];
-    var currentContent = currentData.content.slice(0, currentData.i++);
-    currentData.$el.html(currentContent);
-    currentData.$renderEl.text(currentContent);
+    if (!self.pending.length) return;
+    var current = self.pending[0];
+    var data = self.data[current];
+    var currentContent = data.content.slice(0, data.i++);
+    data.$el.html(currentContent);
+    data.$renderEl.text(currentContent);
 
     if (typeof opts.step === 'function') opts.step();
 
-    var currentMatch = currentContent.match(/autobot-current=(\w+)\W$/);
-    if (currentMatch) self.current = currentMatch[1];
-    else if (currentData.i >= currentData.content.length) return;
+    if (data.i >= data.content.length) self.pending.shift();
+    else {
+      var next = (currentContent.match(/autobot-next=(\w+)\W$/) || [])[1];
+      if (next) self.pending = self.pending
+        .splice(self.pending.indexOf(next) || Infinity, 1)
+        .concat(self.pending);
+    }
 
     setTimeout(fn, self.getTimeout(currentContent));
   };
