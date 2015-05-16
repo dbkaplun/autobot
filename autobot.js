@@ -48,6 +48,7 @@
     var currentContent = data.content.slice(0, data.i++);
     data.$el.html(currentContent);
     data.$renderEl.text(currentContent);
+    hljs.highlightBlock(data.$renderEl[0]);
 
     if (typeof opts.step === 'function') opts.step.call(self, data);
 
@@ -71,6 +72,7 @@
   };
 
   $(function () {
+    hljs.configure({classPrefix: ''});
     new Autobot($('[data-autobot]')).animate();
   });
 
