@@ -12,7 +12,8 @@
   Autobot.DEFAULT_OPTS = {
     keystrokeMs: 20,
     periodMs: 600,
-    endCommentMs: 1000
+    endCommentMs: 1000,
+    renderTemplate: $('<pre>', {'class': 'autobot-code'})
   };
   function Autobot ($els, opts) {
     var self = this;
@@ -24,7 +25,7 @@
       self.data[name] = {
         name: name,
         $el: $el,
-        $renderEl: $('<pre>').addClass('autobot-code').appendTo('body'),
+        $renderEl: $(self.opts.renderTemplate).clone().appendTo('body'),
         content: $el.html(),
         i: 0
       };
