@@ -49,7 +49,7 @@
     data.$el.html(currentContent);
     data.$renderEl.text(currentContent);
 
-    if (typeof opts.step === 'function') opts.step();
+    if (typeof opts.step === 'function') opts.step.call(self, data);
 
     if (data.i >= data.content.length) self.pending.shift();
     else {
