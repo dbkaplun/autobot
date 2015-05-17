@@ -9,10 +9,12 @@
     root.Autobot = factory(root, root.jQuery, root.hljs);
   }
 }(this, function (window, $, hljs) {
+  Autobot.RENDER_CLASS = 'autobot-code';
+  Autobot.RENDER_SELECTOR = '.'+Autobot.RENDER_CLASS;
   Autobot.DEFAULT_OPTS = {
     keystrokeMs: 20,
     punctuationMs: 1000,
-    renderTemplate: $('<pre>', {'class': 'autobot-code'})
+    renderTemplate: $('<pre>', {'class': Autobot.RENDER_CLASS})
   };
   function Autobot ($els, opts) {
     var self = this;
@@ -47,10 +49,9 @@
     var currentContent = data.content.slice(0, data.i++);
 
     data.$el.html(currentContent);
-    data.$renderEl.scrollBottom(function () {
-      data.$renderEl.text(currentContent);
-      hljs.highlightBlock(data.$renderEl[0]);
-    });
+    data.$renderEl.text(currentContent);
+    if (hljs) hljs.highlightBlock(data.$renderEl[0]);
+    data.$renderEl.trigger('resize');
 
     if (typeof opts.step === 'function') opts.step.call(self, data);
 
@@ -79,7 +80,17 @@
   };
 
   $(function () {
-    hljs.configure({classPrefix: ''});
+    $(document).on('resize', Autobot.RENDER_SELECTOR, function () {
+      var $code = $(this);
+      var data = $code.data();
+      if (!data.autobot) data.autobot = {};
+      data = data.autobot;
+      var scrollTopMax = $code[0].scrollHeight - $code.innerHeight();
+      if (data.scrolledToBottom) $code.scrollTop(scrollTopMax);
+      data.scrolledToBottom = $code.scrollTop() >= scrollTopMax;
+    });
+
+    if (hljs) hljs.configure({classPrefix: ''});
     new Autobot($('[data-autobot]')).animate();
   });
 
