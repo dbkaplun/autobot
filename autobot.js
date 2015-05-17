@@ -73,12 +73,6 @@
     return opts.keystrokeMs;
   };
 
-  $.fn.scrollBottom = function (fn) {
-    var scrolledToBottom = this.scrollTop() >= this[0].scrollHeight - this.innerHeight();
-    fn();
-    if (scrolledToBottom) this.scrollTop(this[0].scrollHeight - this.innerHeight());
-  };
-
   $(function () {
     $(document).on('resize', Autobot.RENDER_SELECTOR, function () {
       var $code = $(this);
