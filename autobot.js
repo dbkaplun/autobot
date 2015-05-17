@@ -27,7 +27,10 @@
       self.data[name] = {
         name: name,
         $el: $el,
-        $renderEl: $(self.opts.renderTemplate).clone().appendTo('body'),
+        $renderEl: $(self.opts.renderTemplate)
+          .clone()
+          .addClass(Autobot.getLanguage($el))
+          .appendTo('body'),
         content: $el.html(),
         i: 0
       };
@@ -71,6 +74,11 @@
     if (content.match(/[.?!]\s$/)) return opts.punctuationMs;
     if (content.match(/\s+$/)) return 0; // skip whitespace
     return opts.keystrokeMs;
+  };
+  Autobot.getLanguage = function ($el) {
+    if ($el.is('style')) return 'css';
+    if ($el.is('script')) return 'js';
+    return 'html';
   };
 
   $(function () {
