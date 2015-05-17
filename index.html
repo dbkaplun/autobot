@@ -13,9 +13,9 @@
  *
  * OK, let's begin by making things a bit prettier.
  */
-* { transition: 1s all; color: green; }
-body { background: black; font-family: monospace; }
-.autobot-code { background: #030; }
+* { transition: 1s all; }
+body { background: black; color: green; font-family: monospace; }
+.autobot-code { background: #030; color: #8f8; }
 
 /**
  * Suits me, doesn't it?
@@ -26,6 +26,12 @@ body { background: black; font-family: monospace; }
   width: 33%; max-height: 300px;
   white-space: pre-wrap; overflow: auto;
 }
+
+/**
+ * Some syntax highlighting.
+ */
+.comment { color: green; font-style: italic; }
+.number  { color: red; }
 
 /**
  * Things are pretty enough for now.
@@ -57,7 +63,7 @@ code { background: #222; }
  *
  * I guess we're done coding, so we don't need to see this anymore.
  */
-.autobot-code { opacity: 0; }
+.autobot-code { opacity: 0; display: none; }
     </style>
   </head>
 
