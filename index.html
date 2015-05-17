@@ -15,16 +15,15 @@
  */
 * { transition: 1s all; }
 body { color: green; background: black; font-family: monospace; }
-pre, code { color: #8f8; background: #030; }
+pre, code { color: #8f8; background: #030; white-space: pre-wrap; }
 
 /**
  * Suits me, doesn't it?
  * OK, now let's move this code off to the side.
  */
 .autobot-code {
-  float: right; clear: right;
+  float: right; clear: right; overflow: auto;
   width: 33%; max-height: 300px;
-  white-space: pre-wrap; overflow: auto;
 }
 
 /**
@@ -66,9 +65,9 @@ pre, code { color: #8f8; background: #030; }
 <section>
   <h2>Installation</h2>
   <ul>
-    <li>HighlightJS: <code>//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js</code></li>
-    <li>jQuery: <code>//code.jquery.com/jquery-1.11.3.min.js</code></li>
-    <li>Autobot: <code>//rawgit.com/secrettriangle/autobot/master/autobot.js</code></li>
+    <li>jQuery: <code>&lt;script src="//code.jquery.com/jquery-1.11.3.min.js"&gt;&lt;/script&gt;</code></li>
+    <li>HighlightJS (optional): <code>&lt;script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"&gt;&lt;/script&gt;</code></li>
+    <li>Autobot: <code>&lt;script src="//secrettriangle.github.io/autobot/autobot.js"&gt;&lt;/script&gt;</code></li>
   </ul>
 
   <h2>Usage</h2>
