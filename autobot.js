@@ -11,8 +11,7 @@
 }(this, function (window, $, hljs) {
   Autobot.DEFAULT_OPTS = {
     keystrokeMs: 20,
-    endLineMs: 600,
-    endCommentMs: 1000,
+    punctuationMs: 1000,
     renderTemplate: $('<pre>', {'class': 'autobot-code'})
   };
   function Autobot ($els, opts) {
@@ -68,8 +67,7 @@
   Autobot.prototype.getTimeout = function (content) {
     var self = this;
     var opts = self.opts;
-    if (content.match(/\n$/)) return opts.endLineMs;
-    if (content.match(/(\*\/|-->)$/)) return opts.endCommentMs;
+    if (content.match(/[.?!]\s$/)) return opts.punctuationMs;
     if (content.match(/\s+$/)) return 0; // skip whitespace
     return opts.keystrokeMs;
   };
