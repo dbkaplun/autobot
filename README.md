@@ -1,2 +1,2 @@
-# [autobot](secrettriangle.github.io/autobot)
+# [autobot](http://secrettriangle.github.io/autobot)
 Self-building websites
