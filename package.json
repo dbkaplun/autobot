@@ -1,0 +1,19 @@
+{
+  "name": "autobot",
+  "version": "1.0.0",
+  "description": "Self-building websites",
+  "main": "autobot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/secrettriangle/autobot.git"
+  },
+  "author": "Dan Kaplun <dan@secrettriangle.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/secrettriangle/autobot/issues"
+  },
+  "homepage": "https://github.com/secrettriangle/autobot"
+}
