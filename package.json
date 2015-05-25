@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/secrettriangle/autobot.git"
+    "url": "https://github.com/dbkaplun/autobot.git"
   },
-  "author": "Dan Kaplun <dan@secrettriangle.net>",
+  "author": "Dan Kaplun <dbkaplun@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/secrettriangle/autobot/issues"
+    "url": "https://github.com/dbkaplun/autobot/issues"
   },
-  "homepage": "https://github.com/secrettriangle/autobot"
+  "homepage": "https://github.com/dbkaplun/autobot"
 }
